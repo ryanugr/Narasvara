@@ -1,26 +1,98 @@
+@import url('https://fonts.googleapis.com/css2?family=Newsreader:ital,wght@0,300;0,400;1,300;1,400&family=IBM+Plex+Sans:ital,wght@0,400;0,500;1,400&family=Space+Grotesk:wght@400;500&display=swap');
+
 @import "tailwindcss";
 
+@theme {
+  --color-ink: #0D0D0D;
+  --color-red: #CB102E;
+  --color-paper: #FFFFFF;
+  --color-parchment: #F4EFE2;
+  --color-gold: #B89455;
+  --color-green-brand: #2D6A47;
+}
+
 :root {
-  --background: #ffffff;
-  --foreground: #171717;
+  --ink: #0D0D0D;
+  --red: #CB102E;
+  --paper: #FFFFFF;
+  --parchment: #F4EFE2;
+  --gold: #B89455;
+  --green: #2D6A47;
+
+  --ink-70: rgba(13, 13, 13, 0.70);
+  --ink-50: rgba(13, 13, 13, 0.50);
+  --ink-30: rgba(13, 13, 13, 0.30);
+  --ink-15: rgba(13, 13, 13, 0.15);
+  --ink-06: rgba(13, 13, 13, 0.06);
+
+  --red-tint: rgba(203, 16, 46, 0.07);
+  --gold-tint: rgba(184, 148, 85, 0.10);
+  --green-tint: rgba(45, 106, 71, 0.08);
+
+  --sidebar-width: 52px;
+  --topbar-height: 44px;
 }
 
-@theme inline {
-  --color-background: var(--background);
-  --color-foreground: var(--foreground);
-  --font-sans: var(--font-geist-sans);
-  --font-mono: var(--font-geist-mono);
+*, *::before, *::after {
+  box-sizing: border-box;
 }
 
-@media (prefers-color-scheme: dark) {
-  :root {
-    --background: #0a0a0a;
-    --foreground: #ededed;
-  }
+html, body {
+  margin: 0;
+  padding: 0;
+  background: var(--parchment);
+  color: var(--ink);
+  font-family: 'IBM Plex Sans', sans-serif;
+  font-size: 14px;
+  line-height: 1.5;
+  -webkit-font-smoothing: antialiased;
 }
 
-body {
-  background: var(--background);
-  color: var(--foreground);
-  font-family: Arial, Helvetica, sans-serif;
+::-webkit-scrollbar {
+  width: 4px;
+  height: 4px;
+}
+::-webkit-scrollbar-track { background: transparent; }
+::-webkit-scrollbar-thumb {
+  background: var(--ink-15);
+  border-radius: 2px;
+}
+::-webkit-scrollbar-thumb:hover { background: var(--ink-30); }
+
+.meta-label {
+  font-family: 'Space Grotesk', sans-serif;
+  font-weight: 500;
+  font-size: 9px;
+  letter-spacing: 0.22em;
+  text-transform: uppercase;
+}
+
+input, textarea, select {
+  font-family: 'IBM Plex Sans', sans-serif;
+}
+
+button:focus-visible, a:focus-visible {
+  outline: 1.5px solid var(--red);
+  outline-offset: 2px;
+}
+
+input[type="range"] {
+  -webkit-appearance: none;
+  appearance: none;
+  height: 3px;
+  background: var(--ink-15);
+  border-radius: 2px;
+  outline: none;
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb {
+  -webkit-appearance: none;
+  width: 14px;
+  height: 14px;
+  border-radius: 50%;
+  background: var(--ink);
+  cursor: pointer;
+}
+input[type="range"]::-webkit-slider-thumb:hover {
+  background: var(--red);
 }
